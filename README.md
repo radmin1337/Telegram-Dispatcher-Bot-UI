@@ -3,27 +3,32 @@
 ![Telegram Dispatcher](https://raw.githubusercontent.com/radmin1337/Telegram-Dispatcher-Bot-UI/refs/heads/main/images/dispatcher.png)
 
 ---
+
 # Telegram Dispatcher
 
-**Telegram Dispatcher** is a professional, high-performance desktop client for managing Telegram Bots. Built with Python and PyQt5, it provides a pixel-perfect replica of the Telegram Desktop interface, allowing you to send and receive messages through your bot with ease.
+**Telegram Dispatcher** is a professional, high-performance desktop client for managing Telegram Bots. Built with Python and PyQt5, it provides a pixel-perfect replica of the Telegram Desktop interface, allowing you to control your bot, manage chats, and handle various media types with a native-feel experience.
 
 ## Features
 
-*   **Telegram Desktop UI:** A meticulous dark-mode replica including real message bubbles, "tails," and custom-styled scrollbars.
-*   **Multi-Bot Management:** Unique chat history and settings saved per individual Bot Token.
-*   **Smart Bubble Logic:** Dynamic message width calculation based on text length (up to 40+ characters per line) for a clean look.
-*   **Persistent Storage:** All tokens, chats, and message histories are saved locally in a `config.json` file.
-*   **Chat Manager:** Manually add chats by User ID or delete existing ones directly from the sidebar.
-*   **Real-time Interaction:** High-speed polling with multi-threaded architecture to prevent UI freezing.
-*   **Safe Connection:** Secure authorization screen before entering the main dashboard.
+*   **Pixel-Perfect UI:** A meticulous dark-mode replica of Telegram Desktop, featuring custom message bubbles with "tails," smooth animations, and a slim custom scrollbar.
+*   **Full Media Support:** 
+    *   Send and receive **Photos**, **Stickers**, and **GIFs**.
+    *   Manage **Files**, **Videos**, and **Audio** messages with dedicated UI blocks.
+    *   **Reveal in Explorer:** Click on any media bubble to instantly open its location in your system's file manager.
+*   **Asynchronous Task Manager:** A dedicated Loading Overlay with a progress bar and "Cancel" button ensures the UI never freezes during heavy file uploads or downloads.
+*   **Message Control:** Full support for **Editing** and **Deleting** sent messages directly from the context menu (Right-Click).
+*   **Multi-Bot Management:** Isolated chat histories and settings for every individual Bot Token, stored securely in a local configuration.
+*   **Manual Chat Control:** Manually add new conversations via User ID or remove inactive ones from your sidebar.
+*   **Persistent & Smart Storage:** All conversations are saved in `config.json`. Temporary media files are cleaned up on exit and automatically re-downloaded from Telegram servers when needed.
 
 ## Requirements
 
 To run this project, you need:
 
-*   **Python 3.8+**
-*   **PyQt5** (for the UI)
-*   **pyTelegramBotAPI** (Telebot library)
+*   **Python 3.10+**
+*   **PyQt5** (UI Framework)
+*   **pyTelegramBotAPI** (Telegram Bot API wrapper)
+*   **Requests** (For file handling)
 
 ## Installation
 
@@ -35,11 +40,7 @@ To run this project, you need:
 
 2.  **Install dependencies:**
     ```bash
-    pip install -r requirements.txt
-    ```
-    *If you don't have a requirements file yet, run:*
-    ```bash
-    pip install PyQt5 pyTelegramBotAPI
+    pip install PyQt5 pyTelegramBotAPI requests
     ```
 
 3.  **Run the application:**
@@ -49,14 +50,17 @@ To run this project, you need:
 
 ## How to Use
 
-1.  **Login:** Paste your Telegram Bot Token into the authorization field and click **CONNECT**.
-2.  **Dashboard:**
-    *   **Incoming Messages:** Chats will automatically appear in the left sidebar when users message your bot.
-    *   **Manual Control:** Use the "Add" field to manually start a chat via User ID.
-    *   **Messaging:** Click on a chat to open the dialogue. Type your message and hit the arrow (➤) or press `Enter`.
-3.  **Management:** Right-click or use the Delete button to clean up your chat list.
+1.  **Authorization:** Enter your Bot Token on the splash screen and click **CONNECT**. The app will sync your existing chat metadata.
+2.  **Messaging:** 
+    *   Select a contact from the left sidebar to load the history.
+    *   Use the **📎 (Paperclip)** button to send images, stickers, or documents.
+    *   Type text and press `Enter` or click the **➤** arrow to send.
+3.  **Management:**
+    *   **Right-Click** on your messages to Edit or Delete them.
+    *   **Left-Click** on files/images to open them in your computer's folders.
+    *   Use the **Add/Delete** buttons in the sidebar to manage your contact list via Telegram IDs.
 
 ## Configuration
-The app generates a `config.json` in the root directory. This file stores your bot tokens and encrypted-like structures of your chat histories, ensuring you never lose a conversation.
+The `config.json` file stores your bot tokens and structured chat histories. It is designed to be portable—you can move it between installations to keep your data.
 
 ---
