@@ -1,3 +1,4 @@
+
 ---
 
 ![Telegram Dispatcher](https://raw.githubusercontent.com/radmin1337/Telegram-Dispatcher-Bot-UI/refs/heads/main/images/dispatcher.png)
@@ -62,5 +63,8 @@ To run this project, you need:
 
 ## Configuration
 The `config.json` file stores your bot tokens and structured chat histories. It is designed to be portable—you can move it between installations to keep your data.
+
+## ⚠️ Disclaimer
+The author of this software is **not responsible** for any misuse or legal consequences arising from the use of this application. This tool is provided for educational and administrative purposes only.
 
 ---
